@@ -14,18 +14,25 @@ class TaskForm(forms.ModelForm):
     )
 
     deadline = forms.DateTimeField(
-        widget=DateTimeInput(attrs={'type': 'datetime-local'}),
-        required=True
+        widget=DateTimeInput(attrs={"type": "datetime-local"}), required=True
     )
 
     class Meta:
         model = Task
         fields = "__all__"
 
+
 class WorkerCreationForm(UserCreationForm):
     class Meta:
         model = Worker
-        fields = ("username", "first_name", "last_name", "position", "password1", "password2")
+        fields = (
+            "username",
+            "first_name",
+            "last_name",
+            "position",
+            "password1",
+            "password2",
+        )
         labels = {
             "username": "Username",
             "first_name": "First Name",

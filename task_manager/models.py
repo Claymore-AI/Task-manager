@@ -25,9 +25,7 @@ class Task(models.Model):
     deadline = models.DateTimeField()
     is_completed = models.BooleanField(default=False)
     priority = models.CharField(
-        max_length=10,
-        choices=PriorityChoices,
-        default=PriorityChoices.MIDDLE
+        max_length=10, choices=PriorityChoices, default=PriorityChoices.MIDDLE
     )
 
     task_type = models.ForeignKey(TaskType, on_delete=models.CASCADE)
