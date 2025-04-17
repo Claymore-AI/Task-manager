@@ -1,5 +1,5 @@
 <div class="sidebar-nav bg-dark text-white p-3" style="min-height: 100vh;">
-  <h4 class="text-center">Task Manager</h4>
+  <h4 class="text-center text-white">Task Manager</h4>
   <ul class="nav flex-column mt-4">
     <li class="nav-item">
       <a class="nav-link text-white" href="{% url 'task_manager:home' %}">Home</a>
@@ -8,7 +8,7 @@
       <a class="nav-link text-white" href="{% url 'task_manager:task-list' %}">Tasks</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link text-white" href="#">Workers</a>
+      <a class="nav-link text-white" href="{% url 'task_manager:worker-list' %}">Workers</a>
     </li>
   </ul>
   <hr class="bg-white">
@@ -20,7 +20,7 @@
       <p class="text-center text-white">User: {{ user.username }}</p>
       <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
-        <button type="submit" class="btn btn-outline-light w-100">Logout</button>
+        <button type="submit" class="btn btn-outline-light w-100 text-white bg-transparent">Logout</button>
       </form>
     {% endif %}
   </div>

@@ -39,3 +39,10 @@ class SignUpView(CreateView):
     form_class = WorkerCreationForm
     template_name = 'registration/signup.html'
     success_url = reverse_lazy('login')
+
+
+class WorkerListView(ListView):
+    model = Worker
+    template_name = "task_manager/worker_list.html"
+    context_object_name = "worker_list"
+    paginate_by = 10
