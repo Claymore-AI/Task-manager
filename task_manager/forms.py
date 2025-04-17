@@ -2,16 +2,11 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import QuerySet
 from django.forms import DateTimeInput
-
 from task_manager.models import Task, Worker, Position
 
 
 class TaskForm(forms.ModelForm):
-    task_queryset: QuerySet = Task.objects.all()
-
-    task = forms.ModelMultipleChoiceField(
-        queryset=task_queryset, widget=forms.CheckboxSelectMultiple, required=False
-    )
+    task_queryset = Task.objects.all()
 
     deadline = forms.DateTimeField(
         widget=DateTimeInput(attrs={"type": "datetime-local"}), required=True
@@ -19,8 +14,18 @@ class TaskForm(forms.ModelForm):
 
     class Meta:
         model = Task
-        fields = "__all__"
-
+        fields = [
+            "name",
+            "description",
+            "deadline",
+            "priority",
+            "task_type",
+            "assignees",
+        ]
+        widgets = {
+            "assignees": forms.CheckboxSelectMultiple,
+            "deadline": DateTimeInput(attrs={"type": "datetime-local"}),
+        }
 
 class WorkerCreationForm(UserCreationForm):
     class Meta:
@@ -29,6 +34,7 @@ class WorkerCreationForm(UserCreationForm):
             "username",
             "first_name",
             "last_name",
+            "email",
             "position",
             "password1",
             "password2",
@@ -37,7 +43,9 @@ class WorkerCreationForm(UserCreationForm):
             "username": "Username",
             "first_name": "First Name",
             "last_name": "Last Name",
+            "email": "Email",
             "position": "Position",
             "password1": "Password",
             "password2": "Confirm Password",
         }
+
