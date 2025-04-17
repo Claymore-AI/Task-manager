@@ -20,7 +20,7 @@
       <p class="text-center text-white">User: {{ user.username }}</p>
       <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
-        <button type="submit" class="btn btn-outline-light w-100 mt-2">Logout</button>
+        <button type="submit" class="btn w-100 mt-2">Logout</button>
       </form>
     {% endif %}
   </div>
