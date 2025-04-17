@@ -27,6 +27,7 @@ class TaskForm(forms.ModelForm):
             "deadline": DateTimeInput(attrs={"type": "datetime-local"}),
         }
 
+
 class WorkerCreationForm(UserCreationForm):
     class Meta:
         model = Worker
@@ -48,4 +49,3 @@ class WorkerCreationForm(UserCreationForm):
             "password1": "Password",
             "password2": "Confirm Password",
         }
-

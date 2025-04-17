@@ -57,28 +57,38 @@ class ViewsTestCase(TestCase):
 
     def test_create_view_authenticated(self):
         self.client.login(username="testuser", password="password123")
-        response = self.client.post(reverse("task_manager:task-create"), {
-            "name": "New Task",
-            "description": "New task description",
-            "deadline": (timezone.now() + timezone.timedelta(days=5)).strftime("%Y-%m-%dT%H:%M"),
-            "task_type": self.task_type.id,
-            "priority": Task.PriorityChoices.HIGH,
-            "assignees": [self.user.id],
-        })
+        response = self.client.post(
+            reverse("task_manager:task-create"),
+            {
+                "name": "New Task",
+                "description": "New task description",
+                "deadline": (timezone.now() + timezone.timedelta(days=5)).strftime(
+                    "%Y-%m-%dT%H:%M"
+                ),
+                "task_type": self.task_type.id,
+                "priority": Task.PriorityChoices.HIGH,
+                "assignees": [self.user.id],
+            },
+        )
         self.assertEqual(Task.objects.count(), 2)
         self.assertRedirects(response, reverse("task_manager:task-list"))
 
     def test_update_view(self):
         self.client.login(username="testuser", password="password123")
         url = reverse("task_manager:task-update", args=[self.task.id])
-        response = self.client.post(url, {
-            "name": "Updated Task",
-            "description": "Updated description",
-            "deadline": (timezone.now() + timezone.timedelta(days=2)).strftime("%Y-%m-%dT%H:%M"),
-            "task_type": self.task_type.id,
-            "priority": Task.PriorityChoices.URGENT,
-            "assignees": [self.user.id],
-        })
+        response = self.client.post(
+            url,
+            {
+                "name": "Updated Task",
+                "description": "Updated description",
+                "deadline": (timezone.now() + timezone.timedelta(days=2)).strftime(
+                    "%Y-%m-%dT%H:%M"
+                ),
+                "task_type": self.task_type.id,
+                "priority": Task.PriorityChoices.URGENT,
+                "assignees": [self.user.id],
+            },
+        )
         self.task.refresh_from_db()
         self.assertEqual(self.task.name, "Updated Task")
         self.assertRedirects(response, reverse("task_manager:task-list"))

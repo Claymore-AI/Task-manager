@@ -40,9 +40,7 @@ class TaskFormTest(TestCase):
     def setUp(self):
         self.position = Position.objects.create(name="QA")
         self.worker = Worker.objects.create_user(
-            username="alice",
-            password="testpass123",
-            position=self.position
+            username="alice", password="testpass123", position=self.position
         )
         self.task_type = TaskType.objects.create(name="Bug")
 

@@ -8,9 +8,7 @@ class ModelsTestCase(TestCase):
         self.task_type = TaskType.objects.create(name="Bug")
         self.position = Position.objects.create(name="Developer")
         self.worker = Worker.objects.create_user(
-            username="testuser",
-            password="password123",
-            position=self.position
+            username="testuser", password="password123", position=self.position
         )
 
     def test_task_type_str(self):
