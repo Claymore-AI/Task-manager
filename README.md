@@ -47,7 +47,8 @@ To get started, register or log in to the application.
 After that, you can create, edit, and delete tasks in your personal dashboard.
 
 ## Database Diagram!
-[task_manager.drawio](task_manager.drawio)
+
+![img.png](img.png)
 
 ## Planned Features
 
