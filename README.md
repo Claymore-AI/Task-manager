@@ -52,8 +52,6 @@ After that, you can create, edit, and delete tasks in your personal dashboard.
 
 ## Planned Features
 
-## Planned Features
-
 - Sort tasks by type.
 - Google authentication.
 - Add tags to tasks (many-to-many).
