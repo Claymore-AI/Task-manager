@@ -4,5 +4,10 @@
   <div class="text-center mt-5">
     <h1>Welcome to Task Manager</h1>
     <p class="lead">Manage your team and tasks with ease.</p>
+    {% if user.is_authenticated %}
+      <p>Hello, {{ user.username }}! You can now manage your tasks.</p>
+    {% else %}
+      <p>Please log in to start managing your tasks.</p>
+    {% endif %}
   </div>
 {% endblock %}

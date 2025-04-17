@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import QuerySet
+from django.forms import DateTimeInput
+
 from task_manager.models import Task, Worker, Position
 
 
@@ -9,6 +11,11 @@ class TaskForm(forms.ModelForm):
 
     task = forms.ModelMultipleChoiceField(
         queryset=task_queryset, widget=forms.CheckboxSelectMultiple, required=False
+    )
+
+    deadline = forms.DateTimeField(
+        widget=DateTimeInput(attrs={'type': 'datetime-local'}),
+        required=True
     )
 
     class Meta:

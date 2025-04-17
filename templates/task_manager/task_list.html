@@ -3,7 +3,9 @@
 {% block content %}
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h1>Task List</h1>
-    <a href="{% url 'task_manager:task-create' %}" class="btn btn-success">Create Task</a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'task_manager:task-create' %}" class="btn btn-success">Create Task</a>
+    {% endif %}
   </div>
 
   {% if task_list %}
@@ -17,8 +19,10 @@
           <span>Difficult: {{ task.priority }}</span><br>
 
           <div class="mt-2">
-            <a href="{% url 'task_manager:task-update' task.id %}" class="btn btn-sm btn-primary">Edit</a>
-            <a href="{% url 'task_manager:task-delete' task.id %}" class="btn btn-sm btn-danger">Delete</a>
+            {% if user.is_authenticated %}
+              <a href="{% url 'task_manager:task-update' task.id %}" class="btn btn-sm btn-primary">Edit</a>
+              <a href="{% url 'task_manager:task-delete' task.id %}" class="btn btn-sm btn-danger">Delete</a>
+            {% endif %}
           </div>
         </li>
       {% endfor %}

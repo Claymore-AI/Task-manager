@@ -8,7 +8,7 @@ from django.views import generic
 from task_manager.forms import TaskForm, WorkerCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-class HomeView(LoginRequiredMixin, TemplateView):
+class HomeView(TemplateView):
     template_name = "task_manager/home.html"
 class TaskListView(LoginRequiredMixin, ListView):
     model = Task
