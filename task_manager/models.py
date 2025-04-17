@@ -50,3 +50,4 @@ class Worker(AbstractUser):
         blank=True,
         related_name="workers",
     )
+    email = models.EmailField(unique=True)
