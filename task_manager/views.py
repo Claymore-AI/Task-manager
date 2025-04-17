@@ -17,7 +17,13 @@ class TaskListView(LoginRequiredMixin, ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        return Task.objects.order_by("priority", "deadline")
+        queryset = Task.objects.order_by("priority", "deadline")
+        search_query = self.request.GET.get("search", "")
+        if search_query:
+            queryset = queryset.filter(name__icontains=search_query)
+        return queryset
+
+
 
 class TaskUpdateView(generic.UpdateView):
     model = Task
@@ -41,7 +47,7 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('login')
 
 
-class WorkerListView(ListView):
+class WorkerListView(LoginRequiredMixin, ListView):
     model = Worker
     template_name = "task_manager/worker_list.html"
     context_object_name = "worker_list"

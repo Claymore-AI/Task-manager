@@ -72,17 +72,17 @@ h1, h2, h3, h4 {
   color: #e67e22 !important;
 }
 
-/* Стили для кнопок */
+/* Стилі для кнопок */
 .btn {
   font-size: 1.1em;
   border-radius: 30px;
   padding: 10px 20px;
   transition: background-color 0.3s ease;
+  border: none; /* Прибирає можливий бордер */
 }
 
 .btn-primary {
   background-color: #3498db;
-  border: none;
 }
 
 .btn-primary:hover {
@@ -91,7 +91,6 @@ h1, h2, h3, h4 {
 
 .btn-success {
   background-color: #2ecc71;
-  border: none;
 }
 
 .btn-success:hover {
@@ -100,7 +99,6 @@ h1, h2, h3, h4 {
 
 .btn-danger {
   background-color: #e74c3c;
-  border: none;
 }
 
 .btn-danger:hover {
@@ -114,6 +112,17 @@ h1, h2, h3, h4 {
 
 .btn-link:hover {
   color: #e67e22;
+}
+
+.btn-outline-light {
+  background-color: transparent;
+  color: #f8f9fa;
+  border: 1px solid #f8f9fa; /* Легкий контур */
+}
+
+.btn-outline-light:hover {
+  background-color: #f8f9fa;
+  color: #2c3e50;
 }
 
 /* Стилі для основного контенту */
@@ -221,4 +230,18 @@ ul.list-group-item .btn {
   .sidebar-nav .nav-link {
     font-size: 1em;
   }
+}
+form.d-flex {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+form.d-flex input {
+  width: 80%;
+  margin-right: 10px;
+}
+
+form.d-flex button {
+  width: 20%;
 }

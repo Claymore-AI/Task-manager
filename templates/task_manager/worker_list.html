@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
+
 {% block content %}
   <div class="container">
     <h2>Workers</h2>
-    <table class="table table-striped">
-      <thead>
+
+    {% if user.is_authenticated %}
+      <table class="table table-striped">
+        <thead>
         <tr>
           <th>Username</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Position</th>
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         {% for worker in worker_list %}
           <tr>
             <td>{{ worker.username }}</td>
@@ -24,7 +27,10 @@
             <td colspan="4">No workers found.</td>
           </tr>
         {% endfor %}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    {% else %}
+      <p>You need to <a href="{% url 'login' %}">log in</a> to view and manage workers.</p>
+    {% endif %}
   </div>
 {% endblock %}

@@ -8,6 +8,11 @@
     {% endif %}
   </div>
 
+  <form method="get" class="d-flex mb-3">
+    <input type="text" name="search" class="form-control me-2" placeholder="Search tasks" value="{{ request.GET.search }}">
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
   {% if task_list %}
     <ul class="list-group">
       {% for task in task_list %}
