@@ -10,6 +10,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class HomeView(TemplateView):
     template_name = "task_manager/home.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            tasks = Task.objects.filter(assignees=self.request.user)
+            context["total_tasks"] = tasks.count()
+            context["completed_tasks"] = tasks.filter(is_completed=True).count()
+            context["pending_tasks"] = tasks.filter(is_completed=False).count()
+        return context
 
 class TaskListView(LoginRequiredMixin, ListView):
     model = Task
