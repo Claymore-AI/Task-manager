@@ -1,4 +1,4 @@
-/* Загальні стилі для всього сайту */
+/* General styles for the entire site */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f6f9;
@@ -7,18 +7,18 @@ body {
   color: #333;
 }
 
-/* Заголовки */
+/* Headers */
 h1, h2, h3, h4 {
   color: #333;
   font-weight: 600;
 }
 
-/* Контейнер для всіх сторінок */
+/* Container for all pages */
 .container-fluid {
   padding: 30px;
 }
 
-/* Стилі для бокової панелі */
+/* Sidebar styles */
 .sidebar-nav {
   background-color: #2C3E50;
   color: white;
@@ -52,7 +52,7 @@ h1, h2, h3, h4 {
   font-weight: bold;
 }
 
-/* Відокремлений блок для логіну та логауту */
+/* Separate block for login and logout */
 .auth-links {
   margin-top: 30px;
   border-top: 1px solid #BDC3C7;
@@ -72,13 +72,13 @@ h1, h2, h3, h4 {
   color: #e67e22 !important;
 }
 
-/* Стилі для кнопок */
+/* Styles for buttons */
 .btn {
   font-size: 1.1em;
   border-radius: 30px;
   padding: 10px 20px;
   transition: background-color 0.3s ease;
-  border: none; /* Прибирає можливий бордер */
+  border: none;
 }
 
 .btn-primary {
@@ -117,7 +117,7 @@ h1, h2, h3, h4 {
 .btn-outline-light {
   background-color: transparent;
   color: #f8f9fa;
-  border: 1px solid #f8f9fa; /* Легкий контур */
+  border: 1px solid #f8f9fa;  /* Light outline */
 }
 
 .btn-outline-light:hover {
@@ -125,7 +125,7 @@ h1, h2, h3, h4 {
   color: #2c3e50;
 }
 
-/* Стилі для основного контенту */
+/* Styles for main content */
 h1 {
   font-size: 2em;
   color: #34495e;
@@ -140,7 +140,7 @@ h2, h3 {
   text-align: center;
 }
 
-/* Форма для реєстрації та входу */
+/* Registration and login form */
 form {
   margin-top: 20px;
   background-color: #fff;
@@ -164,7 +164,7 @@ form {
   box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
 }
 
-/* Стили для списку завдань */
+/* Styles for the task list */
 ul.list-group {
   padding: 0;
   list-style: none;
@@ -198,7 +198,7 @@ ul.list-group-item .btn {
   margin-top: 10px;
 }
 
-/* Пагінація */
+/* Pagination */
 .pagination {
   justify-content: center;
   padding-top: 20px;
@@ -214,7 +214,7 @@ ul.list-group-item .btn {
   color: white;
 }
 
-/* Адаптивність для мобільних */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
   .sidebar-nav {
     position: absolute;

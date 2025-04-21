@@ -1,5 +1,7 @@
 from django.test import TestCase
-from task_manager.forms import TaskForm, WorkerCreationForm
+
+from accounts.forms import WorkerCreationForm
+from task_manager.forms import TaskForm
 from task_manager.models import Task, Worker, Position, TaskType
 from django.utils import timezone
 from datetime import timedelta

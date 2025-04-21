@@ -26,26 +26,3 @@ class TaskForm(forms.ModelForm):
             "assignees": forms.CheckboxSelectMultiple,
             "deadline": DateTimeInput(attrs={"type": "datetime-local"}),
         }
-
-
-class WorkerCreationForm(UserCreationForm):
-    class Meta:
-        model = Worker
-        fields = (
-            "username",
-            "first_name",
-            "last_name",
-            "email",
-            "position",
-            "password1",
-            "password2",
-        )
-        labels = {
-            "username": "Username",
-            "first_name": "First Name",
-            "last_name": "Last Name",
-            "email": "Email",
-            "position": "Position",
-            "password1": "Password",
-            "password2": "Confirm Password",
-        }

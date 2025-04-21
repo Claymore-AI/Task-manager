@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, TemplateView, CreateView, DetailView
 from task_manager.models import Task, TaskType, Position, Worker
-from django.views import generic
-from task_manager.forms import TaskForm, WorkerCreationForm
+from django.views import generic, View
+from task_manager.forms import TaskForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -18,6 +18,7 @@ class HomeView(TemplateView):
             context["completed_tasks"] = tasks.filter(is_completed=True).count()
             context["pending_tasks"] = tasks.filter(is_completed=False).count()
         return context
+
 
 class TaskListView(LoginRequiredMixin, ListView):
     model = Task
@@ -51,13 +52,6 @@ class TaskCreateView(generic.CreateView):
     success_url = reverse_lazy("task_manager:task-list")
 
 
-class SignUpView(CreateView):
-    model = Worker
-    form_class = WorkerCreationForm
-    template_name = "registration/signup.html"
-    success_url = reverse_lazy("login")
-
-
 class WorkerListView(LoginRequiredMixin, ListView):
     model = Worker
     template_name = "task_manager/worker_list.html"
@@ -65,11 +59,12 @@ class WorkerListView(LoginRequiredMixin, ListView):
     paginate_by = 10
 
 
-def toggle_task_status(request, task_id):
-    task = get_object_or_404(Task, id=task_id)
-    task.is_completed = not task.is_completed
-    task.save()
-    return redirect("task_manager:task-list")
+class ToggleTaskStatusView(View):
+    def post(self, request, task_id):
+        task = get_object_or_404(Task, id=task_id)
+        task.is_completed = not task.is_completed
+        task.save()
+        return redirect("task_manager:task-list")
 
 
 class WorkerDetailView(DetailView):

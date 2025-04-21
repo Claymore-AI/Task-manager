@@ -5,10 +5,9 @@ from task_manager.views import (
     TaskCreateView,
     TaskUpdateView,
     TaskDeleteView,
-    SignUpView,
     WorkerListView,
-    toggle_task_status,
     WorkerDetailView,
+    ToggleTaskStatusView,
 )
 
 app_name = "task_manager"
@@ -19,8 +18,11 @@ urlpatterns = [
     path("tasks/create/", TaskCreateView.as_view(), name="task-create"),
     path("tasks/<int:pk>/update/", TaskUpdateView.as_view(), name="task-update"),
     path("tasks/<int:pk>/delete/", TaskDeleteView.as_view(), name="task-delete"),
-    path("signup/", SignUpView.as_view(), name="signup"),
     path("workers/", WorkerListView.as_view(), name="worker-list"),
-    path("tasks/<int:task_id>/toggle/", toggle_task_status, name="toggle-task-status"),
+    path(
+        "tasks/<int:task_id>/toggle/",
+        ToggleTaskStatusView.as_view(),
+        name="toggle-task-status",
+    ),
     path("workers/<int:pk>/", WorkerDetailView.as_view(), name="worker-detail"),
 ]
