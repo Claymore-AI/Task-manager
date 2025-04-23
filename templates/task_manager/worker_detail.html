@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2 class="mb-4">{{ worker.first_name }} {{ worker.last_name }} — {{ worker.position }}</h2>
+
+    <div class="mb-4">
+      <h4>Incomplete Tasks</h4>
+      {% if incomplete_tasks %}
+        <ul class="list-group">
+          {% for task in incomplete_tasks %}
+            <li class="list-group-item">
+              <strong>{{ task.name }}</strong><br>
+              {{ task.description }}<br>
+              Deadline: {{ task.deadline|date:"SHORT_DATE_FORMAT" }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No incomplete tasks.</p>
+      {% endif %}
+    </div>
+
+    <div>
+      <h4>Completed Tasks</h4>
+      {% if completed_tasks %}
+        <ul class="list-group">
+          {% for task in completed_tasks %}
+            <li class="list-group-item">
+              <strong>{{ task.name }}</strong><br>
+              {{ task.description }}<br>
+              Completed on: {{ task.updated_at|date:"SHORT_DATE_FORMAT" }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No completed tasks.</p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

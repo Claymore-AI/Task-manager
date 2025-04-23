@@ -1,0 +1,263 @@
+/* General styles for the entire site */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Headers */
+h1, h2, h3, h4 {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Container for all pages */
+.container-fluid {
+  padding: 30px;
+}
+
+/* Sidebar styles */
+.sidebar-nav {
+  background-color: #2C3E50;
+  color: white;
+  padding: 30px 20px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar-nav .nav-link {
+  color: white !important;
+  font-size: 1.1em;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.sidebar-nav .nav-link:hover {
+  color: #ff7f50 !important;
+  background-color: rgba(255, 127, 80, 0.1);
+  border-radius: 5px;
+}
+
+.sidebar-nav h4.text-center {
+  margin-bottom: 30px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Separate block for login and logout */
+.auth-links {
+  margin-top: 30px;
+  border-top: 1px solid #BDC3C7;
+  padding-top: 20px;
+}
+
+.auth-links .nav-item {
+  margin-bottom: 10px;
+}
+
+.auth-links .nav-link {
+  font-weight: bold;
+  color: #ff7f50 !important;
+}
+
+.auth-links .nav-link:hover {
+  color: #e67e22 !important;
+}
+
+/* Styles for buttons */
+.btn {
+  font-size: 1.1em;
+  border-radius: 30px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #3498db;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+.btn-success {
+  background-color: #2ecc71;
+}
+
+.btn-success:hover {
+  background-color: #27ae60;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.btn-link {
+  color: #ff7f50;
+  font-weight: bold;
+}
+
+.btn-link:hover {
+  color: #e67e22;
+}
+
+.btn-outline-light {
+  background-color: transparent;
+  color: #f8f9fa;
+  border: 1px solid #f8f9fa;  /* Light outline */
+}
+
+.btn-outline-light:hover {
+  background-color: #f8f9fa;
+  color: #2c3e50;
+}
+
+/* Styles for main content */
+h1 {
+  font-size: 2em;
+  color: #34495e;
+  margin-bottom: 20px;
+}
+
+h2, h3 {
+  color: #5D6D7E;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Registration and login form */
+form {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-label {
+  font-weight: 600;
+}
+
+.form-control {
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.form-control:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+/* Styles for the task list */
+ul.list-group {
+  padding: 0;
+  list-style: none;
+}
+
+ul.list-group-item {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+ul.list-group-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+ul.list-group-item strong {
+  font-size: 1.2em;
+}
+
+ul.list-group-item span {
+  color: #7f8c8d;
+}
+
+ul.list-group-item .btn {
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin-top: 10px;
+}
+
+/* Pagination */
+.pagination {
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.pagination .page-item a {
+  color: #3498db;
+}
+
+.pagination .page-item.active span {
+  background-color: #3498db;
+  border-color: #3498db;
+  color: white;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .sidebar-nav {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .container-fluid {
+    padding: 15px;
+  }
+
+  .sidebar-nav .nav-link {
+    font-size: 1em;
+  }
+}
+form.d-flex {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+form.d-flex input {
+  width: 80%;
+  margin-right: 10px;
+}
+
+form.d-flex button {
+  width: 20%;
+}
+.avatar-circle {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  line-height: 40px;
+  font-weight: bold;
+  font-size: 1em;
+}
+.table-hover tbody tr:hover {
+  background-color: #f1f1f1;
+  transition: background-color 0.3s ease;
+}
+.list-group-item strong {
+  color: #34495e;
+  font-size: 1.1em;
+}

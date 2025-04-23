@@ -1,0 +1,88 @@
+[
+  {
+    "model": "task_manager.tasktype",
+    "pk": 1,
+    "fields": {
+      "name": "Bug Fix"
+    }
+  },
+  {
+    "model": "task_manager.tasktype",
+    "pk": 2,
+    "fields": {
+      "name": "Feature Request"
+    }
+  },
+  {
+    "model": "task_manager.position",
+    "pk": 1,
+    "fields": {
+      "name": "Developer"
+    }
+  },
+  {
+    "model": "task_manager.position",
+    "pk": 2,
+    "fields": {
+      "name": "Manager"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "username": "alice",
+      "first_name": "Alice",
+      "last_name": "Smith",
+      "email": "alice@example.com",
+      "password": "pbkdf2_sha256$...$...",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "position": 1
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "username": "bob",
+      "first_name": "Bob",
+      "last_name": "Johnson",
+      "email": "bob@example.com",
+      "password": "pbkdf2_sha256$...$...",
+      "is_active": true,
+      "is_staff": false,
+      "is_superuser": false,
+      "position": 2
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 1,
+    "fields": {
+      "name": "Fix login bug",
+      "description": "Fix the login issue on the website.",
+      "created_date": "2025-04-16T12:00:00Z",
+      "deadline": "2025-04-17T12:00:00Z",
+      "is_completed": false,
+      "priority": "URGENT",
+      "task_type": 1,
+      "assignees": [1]
+    }
+  },
+  {
+    "model": "task_manager.task",
+    "pk": 2,
+    "fields": {
+      "name": "Develop new feature",
+      "description": "Add a new feature to the product.",
+      "created_date": "2025-04-16T12:00:00Z",
+      "deadline": "2025-04-20T12:00:00Z",
+      "is_completed": false,
+      "priority": "HIGH",
+      "task_type": 2,
+      "assignees": [2]
+    }
+  }
+]
